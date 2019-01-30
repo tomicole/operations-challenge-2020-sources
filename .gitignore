@@ -1,0 +1,10 @@
+dependency-reduced-pom.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/shelf
+.idea/libraries
+.idea/datasources*
+.idea/httpRequests
+target/
+dependency-reduced-pom.xml
