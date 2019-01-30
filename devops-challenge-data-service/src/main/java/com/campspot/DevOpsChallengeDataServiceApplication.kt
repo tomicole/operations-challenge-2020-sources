@@ -25,5 +25,4 @@ class DevOpsChallengeDataServiceApplication : Application<DevOpsChallengeDataSer
       DevOpsChallengeDataServiceApplication().run(*args)
     }
   }
-
 }

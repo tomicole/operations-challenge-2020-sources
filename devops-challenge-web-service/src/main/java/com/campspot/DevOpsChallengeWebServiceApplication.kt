@@ -1,5 +1,7 @@
 package com.campspot
 
+import com.campspot.lib.NameLib
+import com.campspot.resources.NameResource
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
@@ -10,13 +12,12 @@ class DevOpsChallengeWebServiceApplication : Application<DevOpsChallengeWebServi
     return "DevOpsChallengeWebService"
   }
 
-  override fun initialize(bootstrap: Bootstrap<DevOpsChallengeWebServiceConfiguration>?) {
-    // TODO: application initialization
-  }
+  override fun initialize(bootstrap: Bootstrap<DevOpsChallengeWebServiceConfiguration>?) {}
 
   override fun run(configuration: DevOpsChallengeWebServiceConfiguration,
                    environment: Environment) {
-    // TODO: implement application
+    val nameLib = NameLib()
+    environment.jersey().register(NameResource(nameLib))
   }
 
   companion object {

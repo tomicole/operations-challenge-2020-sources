@@ -27,6 +27,7 @@
   <modules>
     <module>devops-challenge-web-service</module>
     <module>devops-challenge-data-service</module>
+    <module>devops-challenge-api</module>
   </modules>
 
   <dependencyManagement>

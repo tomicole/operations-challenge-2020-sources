@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/devops-challenge-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/devops-challenge-data-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/devops-challenge-web-service" charset="UTF-8" />
   </component>
