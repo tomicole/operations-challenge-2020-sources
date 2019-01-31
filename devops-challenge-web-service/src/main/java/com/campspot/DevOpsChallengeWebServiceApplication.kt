@@ -2,6 +2,7 @@ package com.campspot
 
 import com.campspot.configuration.DevOpsChallengeWebServiceConfiguration
 import com.campspot.db.CacheClient
+import com.campspot.healthchecks.RedisHealthCheck
 import com.campspot.lib.NameLib
 import com.campspot.resources.NameResource
 import com.fasterxml.jackson.module.kotlin.KotlinModule
@@ -25,6 +26,8 @@ class DevOpsChallengeWebServiceApplication : Application<DevOpsChallengeWebServi
     val redisPool = JedisPool(configuration.redis.host, configuration.redis.port)
     val cacheClient = CacheClient(redisPool = redisPool, mapper = environment.objectMapper)
     val nameLib = NameLib(cacheClient = cacheClient)
+
+    environment.healthChecks().register("redis", RedisHealthCheck(redisPool = redisPool))
 
     environment.jersey().register(NameResource(nameLib))
   }
