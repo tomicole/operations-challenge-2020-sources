@@ -12,9 +12,19 @@
   <div class="app-status">
     <h2>App Status</h2>
     <span class="app-status-indicator">
-      Connected
+      Not Connected
     </span>
   </div>
+
+  <form onsubmit="return save()">
+    <h2>Add Name</h2>
+    <label for="FirstName">First Name</label>
+    <input type="text" id="FirstName" required>
+    <label for="LastName">Last Name</label>
+    <input type="text" id="LastName" required>
+    <input type="submit">
+    <div class="error"></div>
+  </form>
 
   <div class="app-data">
     <h2>App Data</h2>

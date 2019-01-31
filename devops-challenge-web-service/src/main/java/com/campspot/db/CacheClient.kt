@@ -22,4 +22,10 @@ class CacheClient(private val redisPool: JedisPool, private val mapper: ObjectMa
       redis.set(hashed.id.toString(), json)
     }
   }
+
+  fun getIds(): Collection<UUID> {
+    redisPool.resource.use { redis ->
+      return redis.keys("*").map { UUID.fromString(it) }
+    }
+  }
 }

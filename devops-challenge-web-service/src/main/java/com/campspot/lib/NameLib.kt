@@ -8,10 +8,6 @@ import java.nio.charset.Charset
 import java.util.*
 
 class NameLib(private val cacheClient: CacheClient) {
-  fun fetchName(id: UUID): HashedName {
-    return cacheClient.getName(id)
-  }
-
   fun saveName(name: Name): HashedName {
     val hashed = HashedName(
       id = UUID.randomUUID(),
@@ -29,5 +25,11 @@ class NameLib(private val cacheClient: CacheClient) {
       .asBytes()
 
     return String(hashedBytes)
+  }
+
+  fun fetchNames(): Set<HashedName> {
+    val ids = cacheClient.getIds()
+
+    return ids.map { cacheClient.getName(it) }.toSet()
   }
 }

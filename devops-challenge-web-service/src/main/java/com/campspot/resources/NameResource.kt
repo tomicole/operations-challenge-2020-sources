@@ -4,7 +4,6 @@ import com.campspot.api.HashedName
 import com.campspot.api.Name
 import com.campspot.lib.NameLib
 import com.codahale.metrics.annotation.Timed
-import java.util.*
 import javax.validation.Valid
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
@@ -17,9 +16,8 @@ class NameResource(private val nameLib: NameLib) {
   @GET
   @Timed
   @Valid
-  @Path("/{id}")
-  fun fetchName(@PathParam("id") id: UUID): HashedName {
-    return nameLib.fetchName(id)
+  fun fetchNames(): Set<HashedName> {
+    return nameLib.fetchNames()
   }
 
   @POST
