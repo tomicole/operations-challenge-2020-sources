@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType
 @Path("/names")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-class NameResource(val nameLib: NameLib) {
+class NameResource(private val nameLib: NameLib) {
   @GET
   @Timed
   @Valid

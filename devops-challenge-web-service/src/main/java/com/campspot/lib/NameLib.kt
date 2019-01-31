@@ -2,21 +2,24 @@ package com.campspot.lib
 
 import com.campspot.api.HashedName
 import com.campspot.api.Name
+import com.campspot.db.CacheClient
 import com.google.common.hash.Hashing
 import java.nio.charset.Charset
 import java.util.*
-import javax.ws.rs.NotFoundException
 
-class NameLib {
+class NameLib(private val cacheClient: CacheClient) {
   fun fetchName(id: UUID): HashedName {
-    throw NotFoundException("Record with id $id not found")
+    return cacheClient.getName(id)
   }
 
   fun saveName(name: Name): HashedName {
-    return HashedName(
+    val hashed = HashedName(
       id = UUID.randomUUID(),
       hash = hashName(name)
     )
+
+    cacheClient.setName(hashed)
+    return hashed
   }
 
   private fun hashName(name: Name): String {
