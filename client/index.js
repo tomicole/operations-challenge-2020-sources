@@ -47,10 +47,11 @@ function checkHealth(apiClient) {
 
 function save() {
   const apiClient = new APIClient();
-  const firstName = document.getElementById("FirstName").value;
-  const lastName = document.getElementById("LastName").value;
+  const firstName = document.getElementById("FirstName");
+  const lastName = document.getElementById("LastName");
   const name = {
-    firstName, lastName
+    firstName: firstName.value,
+    lastName: lastName.value
   };
   apiClient.save(name)
     .then(response => {
