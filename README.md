@@ -13,3 +13,6 @@ This repository contains the sources for a simple client-server web application.
  1. After this succeeds, you should be able to find the JAR at `devops-challenge-web-service/target/devops-challenge-web-service-1.0-SNAPSHOT.jar`
  1. Run the app with the following command `java -jar devops-challenge-web-service/target/devops-challenge-web-service-1.0-SNAPSHOT.jar server devops-challenge-web-service/config.yml`
  1. After running he above, the app should be available on ports 8888 and 8889
+
+## Additional notes
+The server exposes a public API on port 8888 by default, and an admin API on port 8889. The client makes use of the `/healthcheck` endpoint on port 8889 in addition to the public API, but should not have access to the other resources on the admin port.
