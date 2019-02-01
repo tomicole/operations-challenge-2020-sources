@@ -24,7 +24,7 @@ class NameLib(private val cacheClient: CacheClient) {
       .hashString("${name.firstName}:${name.lastName}", Charset.forName("UTF-8"))
       .asBytes()
 
-    return String(hashedBytes)
+    return Base64.getEncoder().encodeToString(hashedBytes)
   }
 
   fun fetchNames(): Set<HashedName> {
