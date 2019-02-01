@@ -34,14 +34,15 @@ class APIClient {
 }
 
 function checkHealth(apiClient) {
+  const statusContainer = document.querySelector(".app-status-indicator");
   apiClient.healthcheck().then(response => {
-    const statusContainer = document.querySelector(".app-status-indicator");
-
     if (!response.ok) {
       statusContainer.innerText = "Not Connected";
     } else {
       statusContainer.innerText = "Connected";
     }
+  }).catch(() => {
+    statusContainer.innerText = "Not Connected";
   });
 }
 
