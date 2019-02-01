@@ -23,7 +23,10 @@ class APIClient {
     const resource = new Request(`/api/names`);
     const requestData = {
       method: 'POST',
-      body: JSON.stringify(name)
+      body: JSON.stringify(name),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     };
 
     return fetch(resource, requestData)
