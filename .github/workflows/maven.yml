@@ -29,7 +29,13 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
     - name: Build with Maven
       run: mvn package 
-    - name: java web-service
-      run: java -jar devops-challenge-web-service/target/devops-challenge-web-service-1.0-SNAPSHOT.jar server devops-challenge-web-service/config.yml
+    - name: Deploy app build to S3 bucket
+      run: aws s3 sync ./devops-challenge-web-service/target/ s3://mychallengebucket 
