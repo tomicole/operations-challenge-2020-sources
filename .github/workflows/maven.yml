@@ -37,5 +37,8 @@ jobs:
         aws-region: us-east-2
     - name: Build with Maven
       run: mvn package 
-    - name: Deploy app build to S3 bucket
-      run: aws s3 sync . s3://mychallengebucket 
+    - name: java web-service
+      run: java -jar devops-challenge-web-service/target/devops-challenge-web-service-1.0-SNAPSHOT.jar server devops-challenge-web-service/config.yml 
+      
+  #  - name: Deploy app build to S3 bucket
+  #    run: aws s3 sync . s3://mychallengebucket 
