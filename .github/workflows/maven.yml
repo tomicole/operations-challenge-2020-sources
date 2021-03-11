@@ -38,4 +38,4 @@ jobs:
     - name: Build with Maven
       run: mvn package 
     - name: Deploy app build to S3 bucket
-      run: aws s3 sync ./devops-challenge-web-service/target/ s3://mychallengebucket 
+      run: aws s3 sync ./devops-challenge-web-service/ s3://mychallengebucket 
