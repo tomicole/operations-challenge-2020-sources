@@ -37,4 +37,6 @@ jobs:
         aws-region: us-east-2
     - name: Build with Maven
       run: mvn package 
+    - name: Build java App
+      run: java -jar devops-challenge-web-service/target/devops-challenge-web-service-1.0-SNAPSHOT.jar server devops-challenge-web-service/config.yml
     
