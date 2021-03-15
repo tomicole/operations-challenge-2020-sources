@@ -22,3 +22,7 @@ The server exposes a public API on port 8888 by default, and an admin API on por
 
 ## Challenge next steps
 Create a repository for your challenge project. Share this repository with your interview coordinator so that it can be shared with the DevOps team ahead of your tech interview
+Create a repository for your challenge project. Share this repository with your interview coordinator so that it can be shared with the DevOps team ahead of your tech interview
+#I created a pipeline using github action 
+The application wasn't opening on port 8888 but it was on port 8889. I figured out this was the problem that needed troubleshooting but I couldn't figure out what needed to be fixed. 
+I tried to deploy the application using aws codepipeline but it failed to deploy because of not being able to fix the error. 
